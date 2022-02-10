@@ -16,9 +16,9 @@ namespace WebApi
 
             IMvcBuilder mvcBuilder = builder.Services.AddControllers();
 
-            // Why is this line required? Why does AddControllers and MapControllers not discover
-            // the Weather controller when running webserver from another app?
-            mvcBuilder.AddApplicationPart(typeof(WeatherForecastController).Assembly);
+            // NOTE: This is the workaround.
+            // Uncomment in order to make controller discoverable when running from another .NET CORE app.
+            //mvcBuilder.AddApplicationPart(typeof(WeatherForecastController).Assembly);
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
